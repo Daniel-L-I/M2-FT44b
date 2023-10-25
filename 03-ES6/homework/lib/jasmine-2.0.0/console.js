@@ -29,21 +29,21 @@ function getJasmineRequireObj() {
   }
 }
 
-getJasmineRequireObj().console = function(jRequire, j$) {
+getJasmineRequireObj().console = function (jRequire, j$) {
   j$.ConsoleReporter = jRequire.ConsoleReporter();
 };
 
-getJasmineRequireObj().ConsoleReporter = function() {
+getJasmineRequireObj().ConsoleReporter = function () {
 
   var noopTimer = {
-    start: function(){},
-    elapsed: function(){ return 0; }
+    start: function () { },
+    elapsed: function () { return 0; }
   };
 
   function ConsoleReporter(options) {
     var print = options.print,
       showColors = options.showColors || false,
-      onComplete = options.onComplete || function() {},
+      onComplete = options.onComplete || function () { },
       timer = options.timer || noopTimer,
       specCount,
       failureCount,
@@ -56,7 +56,7 @@ getJasmineRequireObj().ConsoleReporter = function() {
         none: '\x1B[0m'
       };
 
-    this.jasmineStarted = function() {
+    this.jasmineStarted = function () {
       specCount = 0;
       failureCount = 0;
       pendingCount = 0;
@@ -65,7 +65,7 @@ getJasmineRequireObj().ConsoleReporter = function() {
       timer.start();
     };
 
-    this.jasmineDone = function() {
+    this.jasmineDone = function () {
       printNewline();
       for (var i = 0; i < failedSpecs.length; i++) {
         specFailureDetails(failedSpecs[i]);
@@ -90,7 +90,7 @@ getJasmineRequireObj().ConsoleReporter = function() {
       onComplete(failureCount === 0);
     };
 
-    this.specDone = function(result) {
+    this.specDone = function (result) {
       specCount++;
 
       if (result.status == "pending") {

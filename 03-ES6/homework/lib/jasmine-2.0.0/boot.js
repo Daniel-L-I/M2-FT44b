@@ -8,7 +8,7 @@
  [jasmine-gem]: http://github.com/pivotal/jasmine-gem
  */
 
-(function() {
+(function () {
 
   /**
    * ## Require &amp; Instantiate
@@ -33,39 +33,39 @@
    * Build up the functions that will be exposed as the Jasmine public interface. A project can customize, rename or alias any of these functions as desired, provided the implementation remains unchanged.
    */
   var jasmineInterface = {
-    describe: function(description, specDefinitions) {
+    describe: function (description, specDefinitions) {
       return env.describe(description, specDefinitions);
     },
 
-    xdescribe: function(description, specDefinitions) {
+    xdescribe: function (description, specDefinitions) {
       return env.xdescribe(description, specDefinitions);
     },
 
-    it: function(desc, func) {
+    it: function (desc, func) {
       return env.it(desc, func);
     },
 
-    xit: function(desc, func) {
+    xit: function (desc, func) {
       return env.xit(desc, func);
     },
 
-    beforeEach: function(beforeEachFunction) {
+    beforeEach: function (beforeEachFunction) {
       return env.beforeEach(beforeEachFunction);
     },
 
-    afterEach: function(afterEachFunction) {
+    afterEach: function (afterEachFunction) {
       return env.afterEach(afterEachFunction);
     },
 
-    expect: function(actual) {
+    expect: function (actual) {
       return env.expect(actual);
     },
 
-    pending: function() {
+    pending: function () {
       return env.pending();
     },
 
-    spyOn: function(obj, methodName) {
+    spyOn: function (obj, methodName) {
       return env.spyOn(obj, methodName);
     },
 
@@ -86,21 +86,21 @@
   /**
    * Expose the interface for adding custom equality testers.
    */
-  jasmine.addCustomEqualityTester = function(tester) {
+  jasmine.addCustomEqualityTester = function (tester) {
     env.addCustomEqualityTester(tester);
   };
 
   /**
    * Expose the interface for adding custom expectation matchers
    */
-  jasmine.addMatchers = function(matchers) {
+  jasmine.addMatchers = function (matchers) {
     return env.addMatchers(matchers);
   };
 
   /**
    * Expose the mock interface for the JavaScript timeout functions
    */
-  jasmine.clock = function() {
+  jasmine.clock = function () {
     return env.clock;
   };
 
@@ -111,7 +111,7 @@
    */
 
   var queryString = new jasmine.QueryString({
-    getWindowLocation: function() { return window.location; }
+    getWindowLocation: function () { return window.location; }
   });
 
   var catchingExceptions = queryString.getParam("catch");
@@ -123,10 +123,10 @@
    */
   var htmlReporter = new jasmine.HtmlReporter({
     env: env,
-    onRaiseExceptionsClick: function() { queryString.setParam("catch", !env.catchingExceptions()); },
-    getContainer: function() { return document.body; },
-    createElement: function() { return document.createElement.apply(document, arguments); },
-    createTextNode: function() { return document.createTextNode.apply(document, arguments); },
+    onRaiseExceptionsClick: function () { queryString.setParam("catch", !env.catchingExceptions()); },
+    getContainer: function () { return document.body; },
+    createElement: function () { return document.createElement.apply(document, arguments); },
+    createTextNode: function () { return document.createTextNode.apply(document, arguments); },
     timer: new jasmine.Timer()
   });
 
@@ -140,10 +140,10 @@
    * Filter which specs will be run by matching the start of the full name against the `spec` query param.
    */
   var specFilter = new jasmine.HtmlSpecFilter({
-    filterString: function() { return queryString.getParam("spec"); }
+    filterString: function () { return queryString.getParam("spec"); }
   });
 
-  env.specFilter = function(spec) {
+  env.specFilter = function (spec) {
     return specFilter.matches(spec.getFullName());
   };
 
@@ -162,7 +162,7 @@
    */
   var currentWindowOnload = window.onload;
 
-  window.onload = function() {
+  window.onload = function () {
     if (currentWindowOnload) {
       currentWindowOnload();
     }
