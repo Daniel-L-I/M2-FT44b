@@ -7,6 +7,10 @@ export class Card extends React.Component{
       super(props)
    }
 
+   handleDelete = () => {
+      this.props.deleteProduct(this.props.id);
+    }
+    
    render(){
       return (
          <div className='cardBg'>
@@ -18,6 +22,10 @@ export class Card extends React.Component{
    };
 };
 
-export function mapDispatchToProps() {}
+export function mapDispatchToProps(dispatch ) {
+   return {
+      deleteProduct: id => dispatch(deleteProduct(id))
+    }
+}
 
 export default connect(null, mapDispatchToProps)(Card);

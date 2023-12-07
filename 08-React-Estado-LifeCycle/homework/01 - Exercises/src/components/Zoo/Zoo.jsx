@@ -1,7 +1,5 @@
 import React from "react";
-// eslint-disable-next-line no-unused-vars
 import Animals from "../Animals/Animals";
-// eslint-disable-next-line no-unused-vars
 import Species from "../Species/Species";
 import styledZoo from "./Zoo.module.css";
 
@@ -54,14 +52,15 @@ export default function Zoo() {
       .catch((error) => console.log(error));
   }, []);
 
+  // ! Componente
   return (
-    <div className={styledZoo.divContentTitle}>
-      <label>Zoo Name:</label>
+    <div className={styledZoo.divContent}>
+      <label >Zoo Name:</label>
       <input
         type="text"
         value={zoo.zooName}
         onChange={handleInputChange}
-        className={styledZoo.divContentTitle.input}
+        className={styledZoo.divContentTitle}
       />
       <h1 className={styledZoo.title}>{zoo.zooName}</h1>
       <Species

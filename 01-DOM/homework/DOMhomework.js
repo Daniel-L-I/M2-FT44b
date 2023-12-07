@@ -18,7 +18,7 @@ document.querySelector('#createdBy').innerHTML += " Daniel"
 function ToDo(description) {
   // Tu código acá:
   this.description = description,
-  this.complete = false
+    this.complete = false
 }
 
 // Agregar un método denominado 'completeToDo' al prototipo de la clase ToDo
@@ -67,9 +67,11 @@ function buildToDo(todo, index) {
   }
 
   // *agregar el el span a el div 
+  toDoText.addEventListener("click", completeToDo)
   toDoShell.oppendChild(toDoText)
-
-  return toDoShell; // ?entrega el div completo
+  // ?<div><span id = 0 >Barrer</span></div>
+  return toDoShell;
+  // ?entrega el div completo
 }
 
 // La función 'buildToDos' debe crear un array de objetos toDo y devolverlo
@@ -96,7 +98,7 @@ function buildToDos(toDos) {
 //  5) Al final de este archivo, antes de la línea que dice "NO CAMBIES NADA DE ACÁ PARA ABAJO" escribe una
 //     línea para hacer el llamado a esta funcion (displayToDos)
 //  6) Abrir o en el caso de ya tenerlo abierto, recargar, la página
-// *se encsrga de visualizar las tareas 
+// *se encarga de visualizar las tareas 
 function displayToDos() {
   // Tu código acá:
 

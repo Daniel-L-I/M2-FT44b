@@ -2,7 +2,7 @@
   background: #454545;
   width: 100vw;
   height: 70px;
-  color: #f6f4e6;
+  color: #0090d3;
   display: flex;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .menu li:hover {
-  color: #fddb3a;
+  color: #ffd500;
 }
 
 .menu li img {
@@ -45,7 +45,7 @@
 }
 
 .active {
-  color: brown;
+  color: rgb(255, 21, 21);
   font-weight: bold;
   text-decoration: none;
 }

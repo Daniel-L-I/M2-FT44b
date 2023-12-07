@@ -1,24 +1,39 @@
-import { connect } from 'react-redux';
-import React from 'react';
-import './products.css';
-// import Card from '../Card/Card'
+import { connect } from "react-redux";
+import React from "react";
+import "./products.css";
+import Card from "../Card/Card";
 
 export function Products() {
-   return (
-      <>
-         <div className='productsBg'>
-            <h1 className='productsTl'></h1>
+  useEffect(() => {
+    props.getStoreName();
+  }, []);
 
-            <div className='productsList'>
-               {/* ¡Renderiza aquí todas tus cards! */}
-            </div>
-         </div>
-      </>
-   );
+  return (
+    <>
+      <div className="productsBg">
+        <h1 className="productsTl">{props.storeName}</h1>
+
+        <div className="productsList">
+          {props.list.map((p) => (
+            <Card key={p.id} name={p.name} price={p.price} id={p.id} />
+          ))}
+        </div>
+      </div>
+    </>
+  );
 }
 
-export function mapStateToProps() {}
+export function mapStateToProps(state) {
+  return {
+    list: state.list,
+    storeName: state.storeName,
+  };
+}
 
-export function mapDispatchToProps() {}
+export function mapDispatchToProps(dispatch) {
+  return {
+    getStoreName: () => dispatch(getStoreName()),
+  };
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
