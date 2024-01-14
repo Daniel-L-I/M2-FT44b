@@ -6,7 +6,10 @@ const toDoItems = []
 // Usando querySelector seleccionar dicho span por su id ('createdBy') y luego usando innerHTML
 // agregar tu nombre al final del texto actual. Ej: 'Aplicación creada por Franco'
 // Tu código acá:
-document.querySelector('#createdBy').innerHTML += " Daniel"
+// * document.querySelector('#createdBy').innerHTML += " Daniel"
+// ? otra forma
+let spam = document.querySelector('#createdBy');
+spam.innerHTML += ' Daniel'
 
 // Crear una clase denominada 'ToDo' cuyo constructor debe recibir un único parámetro del tipo string
 // con el nombre 'description' que será justamente la descripción del ToDo.
@@ -68,8 +71,10 @@ function buildToDo(todo, index) {
 
   // *agregar el el span a el div 
   toDoText.addEventListener("click", completeToDo)
-  toDoShell.oppendChild(toDoText)
-  // ?<div><span id = 0 >Barrer</span></div>
+  toDoShell.appendChild(toDoText) 
+  // ? <div>
+  // ?    <span id = 0 >Barrer</span>
+  // ? </div>
   return toDoShell;
   // ?entrega el div completo
 }
@@ -102,13 +107,15 @@ function buildToDos(toDos) {
 function displayToDos() {
   // Tu código acá:
 
-  let toDoContainer = document.getElementById('toDoContainer')
+  let toDoContainer = document.querySelector('#toDoContainer')
+
   toDoContainer.innerHTML = ''//?div vacio
 
-  buildToDo(toDoItems).forEach(element => {
-    toDoContainer.appendChild(element)
-  });
+  let resultado = buildToDos(toDoItems)
 
+resultado.map(function(elemento) {
+  return toDoContainer.appendChild(elemento)
+})
 }
 
 // La función 'addToDo' agregará un nuevo ToDo al array 'toDoItems'
@@ -176,7 +183,7 @@ function completeToDo(event) {
 // ********************************************** ----------- ********************************************** //
 
 // Acá debes insertar la llamada a 'displayToDos'
-
+displayToDos()
 // ---------------------------- NO CAMBIES NADA DE ACÁ PARA ABAJO ----------------------------- //
 if (typeof module !== "undefined") {
   module.exports = {

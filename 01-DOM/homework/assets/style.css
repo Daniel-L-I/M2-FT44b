@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(232, 246, 255);
+  background-color: rgb(111, 188, 235);
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   margin-top: 56px;
   display: flex;
@@ -12,7 +12,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: #428fbb;
+  background: #3381ae;
   height: 56px;
   /* padding-left: 15px; */
   display: flex;
@@ -32,8 +32,8 @@ body {
 
 
 #container {
-  background-color: #428fbb;
-  box-shadow: 2px 2px 5px#000;
+  background-color: #348ec2;
+  box-shadow: 2px 2px 5px#1d1a1a;
   width: 50%;
   min-width: 700px;
   border-radius: 5px;
